@@ -149,10 +149,16 @@ if __name__ == "__main__":
     checkpoint_freq = args.checkpoint_freq or dataset.CHECKPOINT_FREQ
 
     last_results_keys = None
+
+    # print('n_step = {}'.format(n_steps))
+
     for step in range(start_step, n_steps):
         step_start_time = time.time()
         minibatches_device = [(x.to(device), y.to(device))
             for x,y in next(train_minibatches_iterator)]
+
+        # print(minibatches_device[0][0].shape)
+
         step_vals = algorithm.update(minibatches_device)
         checkpoint_vals['step_time'].append(time.time() - step_start_time)
 

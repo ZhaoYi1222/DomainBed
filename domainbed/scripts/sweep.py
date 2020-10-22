@@ -120,7 +120,8 @@ def make_args_list(n_trials, dataset_names, algorithms, n_hparams, steps,
     return args_list
 
 def ask_for_confirmation():
-    response = input('Are you sure? (y/n) ')
+    # response = input('Are you sure? (y/n) ')
+    response = "y"
     if not response.lower().strip()[:1] == "y":
         print('Nevermind!')
         exit(0)
